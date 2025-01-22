@@ -52,12 +52,12 @@ These instructions will get you a copy of the project up and running on your loc
 ### User Endpoints
 | Method | Route                  | Description                      |
 |--------|------------------------|----------------------------------|
-| POST   | /api/users/register    | Register a new user              |
+| POST   | /api/users/signup      | Register a new user              |
 | POST   | /api/users/login       | Login user and retrieve token    |
 
 #### Register Endpoint
 ```http
-POST /api/users/register
+POST /api/users/signup
 ```
 **Request Body:**
 ```json
@@ -92,17 +92,6 @@ POST /api/users/login
 {
   "token": "jwt-token",
   "message": "Login successful"
-}
-```
-
-#### Logout Endpoint
-```http
-GET /api/users/logout
-```
-**Response:**
-```json
-{
-  "message": "Successfully logged out"
 }
 ```
 
