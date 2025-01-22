@@ -38,12 +38,8 @@ exports.getPostById = (req, res) => {
             select: "name email -_id"  
         })
         .populate({
-            path: "comments", 
-            populate: {
-                path: "userId", 
-                select: "name email -_id"
-            },
-            select: "content -_id" 
+            path: 'comments', 
+            select: 'content -_id'  
         })
         .then(post => {
             if (!post) {

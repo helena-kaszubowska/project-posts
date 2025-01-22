@@ -1,14 +1,13 @@
 const Comment = require("../models/comment");
 const Post = require("../models/post");
 
-// Dodawanie komentarza
 exports.addComment = (req, res) => {
     const { content } = req.body;
     const { postId } = req.params;
 
     const newComment = new Comment({
         content,
-        userId: req.user.id, // ID użytkownika
+        userId: req.user.id, 
         postId,
     });
 
@@ -31,7 +30,6 @@ exports.addComment = (req, res) => {
         });
 };
 
-// Edycja komentarza (tylko własnego)
 exports.updateComment = (req, res) => {
     const commentId = req.params.id;
 
@@ -67,7 +65,7 @@ exports.deleteComment = (req, res) => {
                 return res.status(403).json({ message: "Brak uprawnień do usunięcia tego komentarza" });
             }
 
-            return Comment.deleteOne(commentId);  // Używamy findByIdAndDelete
+            return Comment.deleteOne({ _id: commentId });  
         })
         .then(() => {
             res.status(200).json({ message: "Komentarz usunięty" });
