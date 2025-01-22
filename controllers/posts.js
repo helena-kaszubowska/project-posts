@@ -8,7 +8,7 @@ exports.getAllPosts = (req, res) => {
         })
         .populate({
             path: 'comments', 
-            select: 'content createdAt -_id'  
+            select: 'content -_id'  
         })
         .then(posts => {
             const simplifiedPosts = posts.map(post => {
@@ -43,7 +43,7 @@ exports.getPostById = (req, res) => {
                 path: "userId", 
                 select: "name email -_id"
             },
-            select: "content createdAt -_id" 
+            select: "content -_id" 
         })
         .then(post => {
             if (!post) {
