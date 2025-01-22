@@ -54,7 +54,6 @@ These instructions will get you a copy of the project up and running on your loc
 |--------|------------------------|----------------------------------|
 | POST   | /api/users/register    | Register a new user              |
 | POST   | /api/users/login       | Login user and retrieve token    |
-| GET    | /api/users/logout      | Logout user                      |
 
 #### Register Endpoint
 ```http
