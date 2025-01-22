@@ -90,8 +90,7 @@ POST /api/users/login
 **Response:**
 ```json
 {
-  "token": "jwt-token",
-  "message": "Login successful"
+  "token": "jwt-token"
 }
 ```
 
