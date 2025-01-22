@@ -267,7 +267,7 @@ DELETE /api/comments/:id
 ```
 
 ## Additional Information
-- Ensure that MongoDB is running locally or use a cloud database.
+- Ensure that MongoDB is running locally.
 - Update the `.env` file with the necessary configurations (e.g., database URI, JWT secret).
 
 ---
