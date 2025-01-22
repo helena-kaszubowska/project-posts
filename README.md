@@ -124,7 +124,6 @@ POST /api/posts
         "userId": "123",
         "comments": [],
         "_id": "456",
-        "__v": 0
     }
 }
 ```
