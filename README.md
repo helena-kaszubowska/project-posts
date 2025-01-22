@@ -113,17 +113,20 @@ POST /api/posts
 {
   "title": "New Post",
   "content": "This is the content of the post.",
-  "author": "user_id"
 }
 ```
 **Response:**
 ```json
 {
-  "id": "456",
-  "title": "New Post",
-  "content": "This is the content of the post.",
-  "author": "user_id",
-  "created_at": "2025-01-22T12:00:00Z"
+    "message": "New Post",
+    "post": {
+        "title": "New Post",
+        "content": "This is the content of the post.",
+        "userId": "123",
+        "comments": [],
+        "_id": "456",
+        "__v": 0
+    }
 }
 ```
 
@@ -133,13 +136,19 @@ GET /api/posts
 ```
 **Response:**
 ```json
+
+
+  "message": "Lista wszystkich postów",
+  "posts": 
 [
   {
-    "id": "456",
     "title": "New Post",
-    "content": "This is the content of the post.",
-    "author": "user_id",
-    "created_at": "2025-01-22T12:00:00Z"
+            "content": "This is the content of the post.",
+            "userId": {
+                "name": "new_user" ,
+                "email": "user@example.com"
+            },
+            "comments": [],
   }
 ]
 ```
@@ -150,13 +159,20 @@ GET /api/posts/:id
 ```
 **Response:**
 ```json
-{
-  "id": "456",
-  "title": "New Post",
-  "content": "This is the content of the post.",
-  "author": "user_id",
-  "created_at": "2025-01-22T12:00:00Z"
-}
+
+ "message": "Pobrano post",
+  "posts": 
+[
+  {
+    "title": "New Post",
+            "content": "This is the content of the post.",
+            "userId": {
+                "name": "new_user" ,
+                "email": "user@example.com"
+            },
+            "comments": [],
+  }
+]
 ```
 
 #### Update Post By ID
@@ -172,12 +188,14 @@ PATCH /api/posts/:id
 **Response:**
 ```json
 {
-  "id": "456",
-  "title": "Updated Post Title",
-  "content": "This is the content of the post.",
-  "author": "user_id",
-  "created_at": "2025-01-22T12:00:00Z"
-}
+    "title": "Updated title",
+            "content": "This is the content of the post.",
+            "userId": {
+                "name": "This is the content of the post.",
+                "email": "user@example.com"
+            },
+            "comments": [],
+  }
 ```
 
 #### Delete Post By ID
@@ -187,7 +205,7 @@ DELETE /api/posts/:id
 **Response:**
 ```json
 {
-  "message": "Post deleted successfully"
+  "message": "Post usunięty"
 }
 ```
 
@@ -205,19 +223,16 @@ POST /api/comments
 **Request Body:**
 ```json
 {
-  "post_id": "456",
   "content": "This is a comment.",
-  "author": "user_id"
 }
 ```
 **Response:**
 ```json
 {
-  "id": "789",
+ "content": "This is a comment.",
   "post_id": "456",
-  "content": "This is a comment.",
-  "author": "user_id",
-  "created_at": "2025-01-22T12:05:00Z"
+  "userId": "123",
+  "id": "789",  
 }
 ```
 
@@ -234,11 +249,10 @@ PATCH /api/comments/:id
 **Response:**
 ```json
 {
-  "id": "789",
+  "content": "Updated comment.",
   "post_id": "456",
-  "content": "Updated Comment Content",
-  "author": "user_id",
-  "created_at": "2025-01-22T12:05:00Z"
+  "userId": "123",
+  "id": "789",  
 }
 ```
 
@@ -249,7 +263,7 @@ DELETE /api/comments/:id
 **Response:**
 ```json
 {
-  "message": "Comment deleted successfully"
+  "message": "Komentarz usunięty"
 }
 ```
 
@@ -258,6 +272,3 @@ DELETE /api/comments/:id
 - Update the `.env` file with the necessary configurations (e.g., database URI, JWT secret).
 
 ---
-
-For more detailed information on individual files and modules, refer to inline comments in the source code or the existing `README.md`. 
-
