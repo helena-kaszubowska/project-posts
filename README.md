@@ -44,7 +44,7 @@ These instructions will get you a copy of the project up and running on your loc
 
 - **Framework**: Node.js with Express
 - **Database**: MongoDB (via Mongoose)
-- **Authentication**: JSON Web Tokens (JWT)
+- **Authentication**: JSON Web Tokens 
 - **Environment Variables**: Managed using `.env` file
 
 ## API Endpoints
